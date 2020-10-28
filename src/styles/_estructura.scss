@@ -1,0 +1,97 @@
+
+* {
+    box-sizing: border-box;
+    }
+    
+    *:focus {
+        outline: none;
+    }
+    body {
+    font-family: Arial;
+    background-color: var(--color-first);
+    min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+    }
+
+    .login{
+    display: flex;
+    box-shadow: 1px 1px 1px 1px black
+    }
+
+    .login-screen {
+        background:white;
+        width: 300px;
+        text-align: center; 
+        border-radius: 5px;
+    }
+
+    .app-title {
+        margin-top:150px;
+        color: var(--color-letras);
+     }
+    .imagen{
+        width: 150px;
+        height: 150px;
+        position: relative;
+        top:20%
+     }
+
+    //  .login-form {
+    //     text-align: center;
+    //     }
+
+    .control-group {
+        margin-bottom: 10px;
+        }
+        
+    input {
+        text-align: center;
+        background-color: var(--color-fondo-suave);
+        border: 2px solid transparent;
+        border-radius: 3px;
+        font-size: 16px;
+        font-weight: 200;
+        padding: 10px 0;
+        width: 250px;
+        transition: border .5s;
+        }
+
+        input:focus {
+            border: 2px solid var(--color-first);
+            box-shadow: none;
+            }
+                
+        .btn {
+          border: 2px solid transparent;
+          background-color: var(--color-secundary);
+          color: var(--color-fondo-suave);
+          font-size: 16px;
+          line-height: 25px;
+          padding: 10px 0;
+          text-decoration: none;
+          text-shadow: none;
+          border-radius: 3px;
+          box-shadow: none;
+          transition: 0.25s;
+          display: block;
+          width: 250px;
+          margin: 0 auto;
+          position: relative;
+          left:25px;
+        }
+                
+        .btn:hover {
+          background-color: var(--color-alert);
+        }
+                
+        .login-link {
+            font-size: 12px;
+            color: var(--color-letras);
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 150px;
+        }
+            

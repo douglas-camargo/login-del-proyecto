@@ -1,0 +1,27 @@
+// breakpoints
+:root {
+    --small:0px;
+    --medium:640px;
+    --large:1024px;
+    --xlarge:1200px;
+    --xxlarge:1440px;
+}
+
+:root {
+    --color-letras: rgb(78, 74, 74);
+    --color-first  : #11507e;
+    --color-secundary : rgb(153, 24, 153);
+    --color-tercary : #0CF0D7;
+    --color-repuesto  : #F56B4F;
+    --color-alert  : #BD2B28;
+    --color-fondo-suave : #ECF0F1;
+  }
+  
+  // Variables de apilamiento (z-index)
+  :root {
+    --z-back    : -10;
+    --z-normal  : 1;
+    --z-tooltip : 10;
+    --z-fixed   : 100;
+    --z-modal   : 1000;
+  }
