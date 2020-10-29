@@ -49,12 +49,11 @@
         
     input {
         text-align: center;
-        background-color: var(--color-fondo-suave);
         border: 2px solid transparent;
         border-radius: 3px;
         font-size: 16px;
         font-weight: 200;
-        padding: 10px 0;
+        // padding: 10px 0;
         width: 250px;
         transition: border .5s;
         }
@@ -62,12 +61,12 @@
         input:focus {
             border: 2px solid var(--color-first);
             box-shadow: none;
+            background-color: var(--color-fondo-suave)
             }
                 
         .btn {
           border: 2px solid transparent;
           background-color: var(--color-secundary);
-          color: var(--color-fondo-suave);
           font-size: 16px;
           line-height: 25px;
           padding: 10px 0;

@@ -4,7 +4,7 @@ import {validarNumero} from '../../funciones/Funciones.js'
 const validate = values => {
     const errors = {}
     if(!values.rut){
-        errors.rut = alert('Te falto rellenar este campo')
+        errors.rut = alert('Te falto llenar el campo Rut')
     }
     else if(values.rut.length < 9){
         errors.rut = alert('Recuerde introducir un número de rut valido, mínimo 9 digitos.')
@@ -14,7 +14,7 @@ const validate = values => {
     }
 
     if(!values.password){
-        errors.password = alert('Te falto rellenar este campo')
+        errors.password = alert('Te falto llenar el campo Contraseña')
     }
     
     return errors
@@ -62,17 +62,17 @@ render() {
 
                 <div className="login-form">
                     <div className="control-group">
-                    <input type="text" name="rut" onChange={this.handleChange} className="login-field" placeholder="rut" id="login-name" />
+                    <input type="text" name="rut" onChange={this.handleChange} className="login-field" placeholder="Rut" id="login-name" />
                     {errors.rut && <span>{errors.rut}</span>}
                     <label className="login-field-icon fui-user" for="login-name"></label>
                     </div>
     
                     <div className="control-group">
-                    <input type="password" name="password" onChange={this.handleChange} className="login-field" placeholder="password" id="login-pass" />
+                    <input type="password" name="password" onChange={this.handleChange} className="login-field" placeholder="Contraseña" id="login-pass" />
                     {errors.password && <span>{errors.password}</span>}
                     <label className="login-field-icon fui-lock" for="login-pass"></label>
                     </div>
-                    <input type="submit" value="entrar" className="center btn" /> 
+                    <input type="submit" value="Entrar" className="center btn" /> 
                     <a className="login-link" href="#">Lost your password?</a>
                 </div>
             </div>
