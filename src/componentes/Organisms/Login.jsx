@@ -1,13 +1,20 @@
 import React from 'react'
+import {validarNumero} from './Funciones.js'
 
 const validate = values => {
     const errors = {}
     if(!values.rut){
         errors.rut = 'Te falto rellenar este campo'
     }
+    else if(values.rut.length < 9){
+        errors.rut = alert('Recuerde introducir un número de rut valido, mínimo 9 digitos.')
+    }
+    else if(!validarNumero(values.rut)){
+        errors.rut = alert('recuerde que solo puede ingresar valores numericos.')
+    }
 
     if(!values.password){
-        errors.password = 'Te falto rellenar este campo'
+        errors.password = alert('Te falto rellenar este campo')
     }
     
     return errors
