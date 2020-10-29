@@ -1,10 +1,10 @@
 import React from 'react'
-import {validarNumero} from './Funciones.js'
+import {validarNumero} from '../../funciones/Funciones.js'
 
 const validate = values => {
     const errors = {}
     if(!values.rut){
-        errors.rut = 'Te falto rellenar este campo'
+        errors.rut = alert('Te falto rellenar este campo')
     }
     else if(values.rut.length < 9){
         errors.rut = alert('Recuerde introducir un número de rut valido, mínimo 9 digitos.')
@@ -32,14 +32,13 @@ class Login extends React.Component {
          this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = ({ target}) => {
-        const {name, value} = target
-        this.setState({ [name]: value })
-
+handleChange = ({ target}) => {
+    const {name, value} = target
+    this.setState({ [name]: value })
     }
 
 
- handleSubmit(event) {
+handleSubmit(event) {
     event.preventDefault()
     const {errors, ...sinErrors} = this.state
     const result = validate(sinErrors)
@@ -49,12 +48,7 @@ class Login extends React.Component {
         console.log('gracias por llenar el formulario')
 
     }
- }
-
-    // cambiarCorreo(e) {
-    //     this.setState({
-    //         correo: e.target.value
-    // })}
+}
 
 render() {
     const {errors} = this.state
@@ -73,7 +67,7 @@ render() {
                     <label className="login-field-icon fui-user" for="login-name"></label>
                     </div>
     
-                     <div className="control-group">
+                    <div className="control-group">
                     <input type="password" name="password" onChange={this.handleChange} className="login-field" placeholder="password" id="login-pass" />
                     {errors.password && <span>{errors.password}</span>}
                     <label className="login-field-icon fui-lock" for="login-pass"></label>
