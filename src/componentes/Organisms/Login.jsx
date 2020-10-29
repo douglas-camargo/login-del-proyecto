@@ -2,6 +2,7 @@ import React from 'react'
 import {validarNumero} from '../../funciones/Funciones.js'
 
 const validate = values => {
+ 
     const errors = {}
     if(!values.rut){
         errors.rut = alert('Te falto llenar el campo Rut')
@@ -55,7 +56,7 @@ render() {
     return (
         <form action="/hola" className="login" onSubmit={this.handleSubmit}>
             <div className="login-screen">
-                <img className="imagen" src="./imagen/foto.png" alt="Login" />
+                <img className="imagen" src="./imagenes/foto.png" alt="Login" />
                 <div className="app-title">
                     <h1>Login</h1>
                 </div>
