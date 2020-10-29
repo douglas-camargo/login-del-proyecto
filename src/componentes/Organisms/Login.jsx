@@ -3,7 +3,11 @@ import React from 'react'
 const validate = values => {
     const errors = {}
     if(!values.rut){
-        errors.rut = 'Te falto rellenar un campo'
+        errors.rut = 'Te falto rellenar este campo'
+    }
+
+    if(!values.password){
+        errors.password = 'Te falto rellenar este campo'
     }
     
     return errors
@@ -18,32 +22,27 @@ class Login extends React.Component {
         }
 
          this.handleSubmit = this.handleSubmit.bind(this);
+         this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange = ({ target}) => {
+        const {name, value} = target
+        this.setState({ [name]: value })
 
     }
+
 
  handleSubmit(event) {
     event.preventDefault()
     const {errors, ...sinErrors} = this.state
     const result = validate(sinErrors)
+
     this.setState({errors: result})
     if (!Object.keys(result).length){
-        console.log('gracias')
+        console.log('gracias por llenar el formulario')
 
     }
  }
-
-
-    //  validar() {
-    // let elemento = document.getElementById("login-name").value
-    // if (elemento == ""){
-    //   alert("Debes llenar el campo")
-    //   return false
-    // }else {
-    //   alert("Gracias por llenar esto ")
-    //   return false
-    //      this.setState({
-    //          nombre: e.target.value
-    //  })}}
 
     // cambiarCorreo(e) {
     //     this.setState({
@@ -59,16 +58,17 @@ render() {
                 <div className="app-title">
                     <h1>Login</h1>
                 </div>
-    
+
                 <div className="login-form">
                     <div className="control-group">
-                    <input type="text" name="rut" className="login-field" placeholder="rut" id="login-name" />
-                    {errors.rut && <p> {alert(errors.rut)} </p>}
+                    <input type="text" name="rut" onChange={this.handleChange} className="login-field" placeholder="rut" id="login-name" />
+                    {errors.rut && <span>{errors.rut}</span>}
                     <label className="login-field-icon fui-user" for="login-name"></label>
                     </div>
     
-                    <div className="control-group">
-                    <input type="password" className="login-field" placeholder="password" id="login-pass" />
+                     <div className="control-group">
+                    <input type="password" name="password" onChange={this.handleChange} className="login-field" placeholder="password" id="login-pass" />
+                    {errors.password && <span>{errors.password}</span>}
                     <label className="login-field-icon fui-lock" for="login-pass"></label>
                     </div>
                     <input type="submit" value="entrar" className="center btn" /> 
