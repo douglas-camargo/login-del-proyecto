@@ -21,6 +21,7 @@ const validate = values => {
 class Login extends React.Component {
     constructor(props){
         super(props)
+        this.myRef = React.createRef();
 
         this.state = {
             errors: {},
@@ -29,10 +30,25 @@ class Login extends React.Component {
             rut:"",
             pass:"",
             desabilitarBtn: true,
-            desabilitarBtne: true
+            desabilitarBtne: true,
+            backgroundcolor: '',
+            backgroundcolortwo: 'rgb(153, 24, 153)',
+            color:true,
+            
         }
+        // this.handleColorChange = this.handleColorChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
+
+    // handleColorChange = () => {
+    //     const node = this.myRef.current
+    //     if(name === "boton"){
+    //         if(){
+    //         this.setState({
+    //         ponerColor: node.current.classList.toggle('color')
+    //        })
+    //     }}
+    // }
 
 handleChange = ({target, e}) => {    
     const {name, value} = target
@@ -44,12 +60,17 @@ handleChange = ({target, e}) => {
         this.setState({
             msgErrorRut:"Recuerde introducir un número de teléfono valido, mínimo 9 digitos.",
             desabilitarBtn: true,
+            backgroundcolor:'rgba(153, 24, 153, 0.5)',
+            color:true,
+            
     })
     } 
     else {
         this.setState({
             msgErrorRut:"",
             desabilitarBtn: false,
+            backgroundcolortwo: 'rgb(153, 24, 153)',
+            color:false,
         })
     }}
 
@@ -58,6 +79,9 @@ handleChange = ({target, e}) => {
         this.setState({
             msgErrorPassword:"La contraseña tiene que ser mayor a 5 caracteres",
             desabilitarBtne: true,
+            backgroundcolor: 'rgba(153, 24, 153, 0.5)',
+            color:true,
+            
     })
     }
     
@@ -65,6 +89,8 @@ handleChange = ({target, e}) => {
         this.setState({
             msgErrorPassword:"",
             desabilitarBtne: false,
+            backgroundcolortwo: 'rgb(153, 24, 153)',
+            color:false,
         })
     }}
     }
@@ -80,7 +106,7 @@ handleSubmit = e => {
 }
 
 render() {
-    const {errors, msgErrorRut, msgErrorPassword} = this.state
+    const {errors, msgErrorRut, msgErrorPassword, color} = this.state
     return (
         <form action="/hola" className="login" onSubmit={this.handleSubmit}>
             <div className="login-screen">
@@ -105,8 +131,14 @@ render() {
                     :<span className="tamañoDeLetraSpan">{msgErrorPassword}</span> }
                     <label className="login-field-icon fui-lock" for="login-pass"></label>
                     </div>
-                    <input type="submit" value="Entrar" className="center btn" 
-                    disabled={this.state.desabilitarBtn || this.state.desabilitarBtne} />   
+                    <div ref={this.myRef}>
+                    <input type="submit" name="boton" value="Entrar" className="center btn" 
+                    disabled={this.state.desabilitarBtn || this.state.desabilitarBtne} 
+                    style={color || this.state.desabilitarBtn
+                        ?{backgroundColor: this.state.backgroundcolor} 
+                        :{backgroundColor: this.state.backgroundcolortwo }}
+                    />
+                    </div>   
                     <a className="login-link" href="#">¿Olvido su contraseña?</a>
                 </div>
             </div>
