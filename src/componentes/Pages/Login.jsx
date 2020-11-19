@@ -36,19 +36,8 @@ class Login extends React.Component {
             color:true,
             
         }
-        // this.handleColorChange = this.handleColorChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
-
-    // handleColorChange = () => {
-    //     const node = this.myRef.current
-    //     if(name === "boton"){
-    //         if(){
-    //         this.setState({
-    //         ponerColor: node.current.classList.toggle('color')
-    //        })
-    //     }}
-    // }
 
 handleChange = ({target, e}) => {    
     const {name, value} = target
@@ -119,27 +108,28 @@ render() {
                     <div className="control-group">
                     <input type="text" name="rut" onChange={this.handleChange} className="login-field" placeholder="Rut" id="login-name" />
                     {errors.rut 
-                    ?<span className="tamañoDeLetraSpan">{errors.rut}</span>
-                    :<span className="tamañoDeLetraSpan">{msgErrorRut}</span> }
+                        ?<span className="tamañoDeLetraSpan">{errors.rut}</span>
+                        :<span className="tamañoDeLetraSpan">{msgErrorRut}</span> }
                     <label className="login-field-icon fui-user" for="login-name"></label>
                     </div>
     
                     <div className="control-group">
                     <input type="password" name="pass" onChange={this.handleChange} className="login-field" placeholder="Contraseña" id="login-pass" />
                     {errors.pass 
-                    ?<span className="tamañoDeLetraSpan">{errors.pass}</span>
-                    :<span className="tamañoDeLetraSpan">{msgErrorPassword}</span> }
+                        ?<span className="tamañoDeLetraSpan">{errors.pass}</span>
+                        :<span className="tamañoDeLetraSpan">{msgErrorPassword}</span> }
                     <label className="login-field-icon fui-lock" for="login-pass"></label>
                     </div>
-                    <div ref={this.myRef}>
+                    
+                    <div>
                     <input type="submit" name="boton" value="Entrar" className="center btn" 
                     disabled={this.state.desabilitarBtn || this.state.desabilitarBtne} 
-                    style={color || this.state.desabilitarBtn
+                    style={color || this.state.desabilitarBtn || this.state.desabilitarBtne
                         ?{backgroundColor: this.state.backgroundcolor} 
                         :{backgroundColor: this.state.backgroundcolortwo }}
                     />
                     </div>   
-                    <a className="login-link" href="#">¿Olvido su contraseña?</a>
+                    <a className="login-link" href="#  ">¿Olvido su contraseña?</a>
                 </div>
             </div>
         </form>
