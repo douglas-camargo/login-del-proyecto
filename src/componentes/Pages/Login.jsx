@@ -110,7 +110,7 @@ render() {
                     {errors.rut 
                         ?<span className="tamañoDeLetraSpan">{errors.rut}</span>
                         :<span className="tamañoDeLetraSpan">{msgErrorRut}</span> }
-                    <label className="login-field-icon fui-user" for="login-name"></label>
+                    <label className="login-field-icon fui-user" htmlFor="login-name"></label>
                     </div>
     
                     <div className="control-group">
@@ -118,7 +118,7 @@ render() {
                     {errors.pass 
                         ?<span className="tamañoDeLetraSpan">{errors.pass}</span>
                         :<span className="tamañoDeLetraSpan">{msgErrorPassword}</span> }
-                    <label className="login-field-icon fui-lock" for="login-pass"></label>
+                    <label className="login-field-icon fui-lock" htmlFor="login-pass"></label>
                     </div>
                     
                     <div>
