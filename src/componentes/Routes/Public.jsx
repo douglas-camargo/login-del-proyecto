@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-
+//Rutas Publicas
 const Public = ({ component: Component, ...rest }) => {
   
     const userLogged = false

@@ -1,6 +1,7 @@
 import React from 'react'
 import {validarNumero} from '../../funciones/Funciones.js'
 
+//funcion para validar del handleSubmit
 const validate = values => {
 
     const errors = {}
@@ -21,7 +22,6 @@ const validate = values => {
 class Login extends React.Component {
     constructor(props){
         super(props)
-        this.myRef = React.createRef();
 
         this.state = {
             errors: {},
@@ -38,7 +38,7 @@ class Login extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
-
+//validacion de onChange 
 handleChange = ({target, e}) => {    
     const {name, value} = target
     this.setState({ [name]: value
@@ -51,7 +51,6 @@ handleChange = ({target, e}) => {
             desabilitarBtn: true,
             backgroundcolor:'rgba(153, 24, 153, 0.5)',
             color:true,
-            
     })
     } 
     else {
@@ -73,7 +72,7 @@ handleChange = ({target, e}) => {
             
     })
     }
-    
+
     else { 
         this.setState({
             msgErrorPassword:"",
@@ -83,7 +82,7 @@ handleChange = ({target, e}) => {
         })
     }}
     }
-    
+//validacion de onSubmit   
 handleSubmit = e => {
     e.preventDefault()
     const {errors, ...sinErrors} = this.state
@@ -112,7 +111,7 @@ render() {
                         :<span className="tamañoDeLetraSpan">{msgErrorRut}</span> }
                     <label className="login-field-icon fui-user" htmlFor="login-name"></label>
                     </div>
-    
+
                     <div className="control-group">
                     <input type="password" name="pass" onChange={this.handleChange} className="login-field" placeholder="Contraseña" id="login-pass" />
                     {errors.pass 
@@ -120,7 +119,7 @@ render() {
                         :<span className="tamañoDeLetraSpan">{msgErrorPassword}</span> }
                     <label className="login-field-icon fui-lock" htmlFor="login-pass"></label>
                     </div>
-                    
+
                     <div>
                     <input type="submit" name="boton" value="Entrar" className="center btn" 
                     disabled={this.state.desabilitarBtn || this.state.desabilitarBtne} 
